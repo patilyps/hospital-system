@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HealthCare Plus Hospital</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    line-height:1.6;
+    color:#333;
+}
+
+header{
+    background:#0d6efd;
+    color:white;
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:bold;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+
+nav a:hover{
+    color:#d9f2ff;
+}
+
+.hero{
+    min-height:90vh;
+    background:linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ),
+    url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:3.5rem;
+    margin-bottom:15px;
+}
+
+.hero-content p{
+    font-size:1.2rem;
+    margin-bottom:25px;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    margin:5px;
+    border-radius:5px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.primary{
+    background:#0d6efd;
+    color:white;
+}
+
+.secondary{
+    background:white;
+    color:#0d6efd;
+}
+
+section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+    color:#0d6efd;
+    font-size:2rem;
+}
+
+.about{
+    text-align:center;
+    max-width:900px;
+    margin:auto;
+}
+
+.stats{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.stat-box{
+    background:#f5f9ff;
+    padding:25px;
+    border-radius:10px;
+}
+
+.stat-box h3{
+    color:#0d6efd;
+    font-size:2rem;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    text-align:center;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    transition:.3s;
+}
+
+.card h3{
+    color:#0d6efd;
+    margin-bottom:10px;
+}
+
+.doctor-img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    margin-bottom:15px;
+}
+
+.testimonials{
+    background:#f5f9ff;
+}
+
+.testimonial{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+.contact-container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ddd;
+    border-radius:5px;
+}
+
+.contact-form button{
+    background:#0d6efd;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+footer{
+    background:#0d6efd;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero-content h1{
+        font-size:2.2rem;
+    }
+
+    .contact-container{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🏥 HealthCare Plus</div>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#doctors">Doctors</a></li>
+            <li><a href="#facilities">Facilities</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>HealthCare Plus Hospital</h1>
+        <p>Compassionate Care, Advanced Medicine</p>
+
+        <a href="#contact" class="btn primary">
+            Book Appointment
+        </a>
+
+        <a href="tel:+911234567890" class="btn secondary">
+            Emergency 24/7
+        </a>
+    </div>
+</section>
+
+<section id="about">
+    <h2 class="section-title">About Us</h2>
+
+    <div class="about">
+        <p>
+            HealthCare Plus Hospital is committed to providing
+            exceptional healthcare services through advanced
+            technology, experienced doctors, and patient-centered care.
+        </p>
+
+        <div class="stats">
+            <div class="stat-box">
+                <h3>20+</h3>
+                <p>Years Experience</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>100+</h3>
+                <p>Doctors</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>50K+</h3>
+                <p>Patients Served</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>24/7</h3>
+                <p>Emergency Care</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services">
+    <h2 class="section-title">Our Services</h2>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Emergency Care</h3>
+            <p>Round-the-clock emergency services.</p>
+        </div>
+
+        <div class="card">
+            <h3>Cardiology</h3>
+            <p>Advanced heart care and diagnostics.</p>
+        </div>
+
+        <div class="card">
+            <h3>Pediatrics</h3>
+            <p>Comprehensive healthcare for children.</p>
+        </div>
+
+        <div class="card">
+            <h3>Orthopedics</h3>
+            <p>Expert bone and joint treatment.</p>
+        </div>
+
+        <div class="card">
+            <h3>Neurology</h3>
+            <p>Brain and nervous system care.</p>
+        </div>
+
+        <div class="card">
+            <h3>Diagnostics</h3>
+            <p>Modern laboratory and imaging services.</p>
+        </div>
+    </div>
+</section>
+
+<section id="doctors">
+    <h2 class="section-title">Our Doctors</h2>
+
+    <div class="grid">
+        <div class="card">
+            <img src="https://via.placeholder.com/100"
+                 class="doctor-img">
+            <h3>Dr. John Smith</h3>
+            <p>Cardiologist</p>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/100"
+                 class="doctor-img">
+            <h3>Dr. Sarah Johnson</h3>
+            <p>Pediatrician</p>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/100"
+                 class="doctor-img">
+            <h3>Dr. Michael Brown</h3>
+            <p>Orthopedic Surgeon</p>
+        </div>
+    </div>
+</section>
+
+<section id="facilities">
+    <h2 class="section-title">Facilities</h2>
+
+    <div class="grid">
+        <div class="card">ICU Unit</div>
+        <div class="card">Modern Operation Theatre</div>
+        <div class="card">24/7 Ambulance</div>
+        <div class="card">Diagnostic Lab</div>
+        <div class="card">Pharmacy</div>
+        <div class="card">Patient Rooms</div>
+    </div>
+</section>
+
+<section class="testimonials">
+    <h2 class="section-title">Patient Testimonials</h2>
+
+    <div class="grid">
+        <div class="testimonial">
+            "Excellent doctors and caring staff."
+            <br><strong>- Rahul P.</strong>
+        </div>
+
+        <div class="testimonial">
+            "Quick emergency treatment and great care."
+            <br><strong>- Priya S.</strong>
+        </div>
+
+        <div class="testimonial">
+            "Clean facilities and professional service."
+            <br><strong>- Amit K.</strong>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+
+    <div class="contact-container">
+
+        <div>
+            <h3>Get In Touch</h3>
+            <p>📍 123 Medical Avenue, Pune, India</p>
+            <p>📞 +91 12345 67890</p>
+            <p>✉ info@healthcareplus.com</p>
+        </div>
+
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea rows="5"
+                      placeholder="Your Message"></textarea>
+            <button type="submit">
+                Send Message
+            </button>
+        </form>
+
+    </div>
+</section>
+
+<footer>
+    <p>
+        © 2026 HealthCare Plus Hospital.
+        All Rights Reserved.
+    </p>
+</footer>
+
+</body>
+</html>
