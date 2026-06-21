@@ -1,237 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HealthCare Plus Hospital</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthCare Plus Hospital</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-html{
-    scroll-behavior:smooth;
-}
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
 
-body{
-    line-height:1.6;
-    color:#333;
-}
+        html{
+            scroll-behavior:smooth;
+        }
 
-header{
-    background:#0d6efd;
-    color:white;
-    padding:15px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
+        body{
+            background:#f5f9ff;
+            color:#333;
+            overflow-x:hidden;
+        }
 
-.logo{
-    font-size:1.5rem;
-    font-weight:bold;
-}
+        /* Header */
 
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:25px;
-}
+        header{
+            position:fixed;
+            width:100%;
+            top:0;
+            z-index:1000;
+            padding:18px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background:rgba(255,255,255,0.9);
+            backdrop-filter:blur(10px);
+            box-shadow:0 4px 20px rgba(0,0,0,0.08);
+        }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:500;
-}
+        .logo{
+            font-size:1.6rem;
+            font-weight:700;
+            color:#0d6efd;
+        }
 
-nav a:hover{
-    color:#d9f2ff;
-}
+        nav ul{
+            display:flex;
+            gap:30px;
+            list-style:none;
+        }
 
-.hero{
-    min-height:90vh;
-    background:linear-gradient(
-        rgba(0,0,0,0.5),
-        rgba(0,0,0,0.5)
-    ),
-    url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=80');
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:white;
-    padding:20px;
-}
+        nav a{
+            text-decoration:none;
+            color:#333;
+            font-weight:500;
+            transition:.3s;
+        }
 
-.hero-content h1{
-    font-size:3.5rem;
-    margin-bottom:15px;
-}
+        nav a:hover{
+            color:#0d6efd;
+        }
 
-.hero-content p{
-    font-size:1.2rem;
-    margin-bottom:25px;
-}
+        /* Hero */
 
-.btn{
-    display:inline-block;
-    padding:12px 25px;
-    margin:5px;
-    border-radius:5px;
-    text-decoration:none;
-    font-weight:bold;
-}
+        .hero{
+            height:100vh;
+            background:linear-gradient(135deg,#0d6efd,#00b4d8);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            color:white;
+            position:relative;
+            overflow:hidden;
+        }
 
-.primary{
-    background:#0d6efd;
-    color:white;
-}
+        .hero::before{
+            content:'';
+            width:500px;
+            height:500px;
+            border-radius:50%;
+            background:rgba(255,255,255,0.08);
+            position:absolute;
+            top:-150px;
+            left:-100px;
+            animation:float 10s infinite ease-in-out;
+        }
 
-.secondary{
-    background:white;
-    color:#0d6efd;
-}
+        .hero::after{
+            content:'';
+            width:350px;
+            height:350px;
+            border-radius:50%;
+            background:rgba(255,255,255,0.08);
+            position:absolute;
+            right:-100px;
+            bottom:-100px;
+            animation:float 8s infinite ease-in-out reverse;
+        }
 
-section{
-    padding:80px 8%;
-}
+        @keyframes float{
+            0%,100%{
+                transform:translateY(0);
+            }
+            50%{
+                transform:translateY(30px);
+            }
+        }
 
-.section-title{
-    text-align:center;
-    margin-bottom:40px;
-    color:#0d6efd;
-    font-size:2rem;
-}
+        .hero-content{
+            position:relative;
+            z-index:10;
+            max-width:800px;
+            animation:fadeUp 1.2s ease;
+        }
 
-.about{
-    text-align:center;
-    max-width:900px;
-    margin:auto;
-}
+        .hero h1{
+            font-size:4rem;
+            margin-bottom:20px;
+        }
 
-.stats{
-    margin-top:40px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:20px;
-}
+        .hero p{
+            font-size:1.2rem;
+            margin-bottom:30px;
+        }
 
-.stat-box{
-    background:#f5f9ff;
-    padding:25px;
-    border-radius:10px;
-}
+        .btn{
+            display:inline-block;
+            padding:14px 30px;
+            border-radius:50px;
+            text-decoration:none;
+            font-weight:600;
+            margin:10px;
+            transition:.4s;
+        }
 
-.stat-box h3{
-    color:#0d6efd;
-    font-size:2rem;
-}
+        .btn-primary{
+            background:white;
+            color:#0d6efd;
+        }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
+        .btn-primary:hover{
+            transform:translateY(-5px);
+            box-shadow:0 15px 30px rgba(0,0,0,.15);
+        }
 
-.card{
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-    text-align:center;
-}
+        .btn-secondary{
+            border:2px solid white;
+            color:white;
+        }
 
-.card:hover{
-    transform:translateY(-5px);
-    transition:.3s;
-}
+        .btn-secondary:hover{
+            background:white;
+            color:#0d6efd;
+        }
 
-.card h3{
-    color:#0d6efd;
-    margin-bottom:10px;
-}
+        /* Sections */
 
-.doctor-img{
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    margin-bottom:15px;
-}
+        section{
+            padding:100px 8%;
+        }
 
-.testimonials{
-    background:#f5f9ff;
-}
+        .section-title{
+            text-align:center;
+            font-size:2.5rem;
+            color:#0d6efd;
+            margin-bottom:20px;
+        }
 
-.testimonial{
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 3px 10px rgba(0,0,0,.08);
-}
+        .section-title::after{
+            content:'';
+            display:block;
+            width:80px;
+            height:4px;
+            background:#00b4d8;
+            margin:12px auto;
+            border-radius:10px;
+        }
 
-.contact-container{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-}
+        .about{
+            text-align:center;
+            max-width:900px;
+            margin:auto;
+        }
 
-.contact-form input,
-.contact-form textarea{
-    width:100%;
-    padding:12px;
-    margin-bottom:15px;
-    border:1px solid #ddd;
-    border-radius:5px;
-}
+        .stats{
+            margin-top:50px;
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+            gap:25px;
+        }
 
-.contact-form button{
-    background:#0d6efd;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    cursor:pointer;
-    border-radius:5px;
-}
+        .stat-box{
+            background:white;
+            padding:30px;
+            border-radius:20px;
+            box-shadow:0 10px 25px rgba(0,0,0,.08);
+            transition:.3s;
+        }
 
-footer{
-    background:#0d6efd;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
+        .stat-box:hover{
+            transform:translateY(-8px);
+        }
 
-@media(max-width:768px){
+        .stat-box h3{
+            font-size:2.5rem;
+            color:#0d6efd;
+        }
 
-    header{
-        flex-direction:column;
-        gap:15px;
-    }
+        /* Grid */
 
-    nav ul{
-        flex-wrap:wrap;
-        justify-content:center;
-    }
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:25px;
+        }
 
-    .hero-content h1{
-        font-size:2.2rem;
-    }
+        .card{
+            background:rgba(255,255,255,.95);
+            border-radius:20px;
+            padding:30px;
+            text-align:center;
+            box-shadow:0 10px 30px rgba(0,0,0,.08);
+            transition:.4s;
+        }
 
-    .contact-container{
-        grid-template-columns:1fr;
-    }
-}
-</style>
+        .card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 20px 40px rgba(13,110,253,.15);
+        }
+
+        .card h3{
+            color:#0d6efd;
+            margin-bottom:10px;
+        }
+
+        /* Doctors */
+
+        .doctor-img{
+            width:120px;
+            height:120px;
+            border-radius:50%;
+            margin-bottom:15px;
+            border:5px solid #e8f2ff;
+        }
+
+        /* Facilities */
+
+        .facility{
+            font-size:1.1rem;
+            font-weight:500;
+        }
+
+        /* Testimonials */
+
+        .testimonials{
+            background:linear-gradient(to bottom,#ffffff,#eef6ff);
+        }
+
+        .testimonial{
+            background:white;
+            padding:30px;
+            border-radius:20px;
+            box-shadow:0 10px 30px rgba(0,0,0,.08);
+            position:relative;
+        }
+
+        .testimonial::before{
+            content:"❝";
+            font-size:60px;
+            color:#d6e6ff;
+            position:absolute;
+            top:10px;
+            left:20px;
+        }
+
+        /* Contact */
+
+        .contact-wrapper{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:40px;
+        }
+
+        .contact-info{
+            background:white;
+            padding:30px;
+            border-radius:20px;
+            box-shadow:0 10px 25px rgba(0,0,0,.08);
+        }
+
+        .contact-info p{
+            margin:15px 0;
+        }
+
+        .contact-form{
+            background:white;
+            padding:30px;
+            border-radius:20px;
+            box-shadow:0 10px 25px rgba(0,0,0,.08);
+        }
+
+        .contact-form input,
+        .contact-form textarea{
+            width:100%;
+            padding:14px;
+            margin-bottom:15px;
+            border:none;
+            background:#f4f8ff;
+            border-radius:12px;
+        }
+
+        .contact-form button{
+            width:100%;
+            padding:15px;
+            border:none;
+            border-radius:50px;
+            background:linear-gradient(135deg,#0d6efd,#00b4d8);
+            color:white;
+            font-size:1rem;
+            cursor:pointer;
+            transition:.3s;
+        }
+
+        .contact-form button:hover{
+            transform:translateY(-3px);
+        }
+
+        /* Footer */
+
+        footer{
+            background:#081c3a;
+            color:white;
+            text-align:center;
+            padding:30px;
+        }
+
+        /* Animation */
+
+        .reveal{
+            opacity:0;
+            transform:translateY(40px);
+            transition:all .8s ease;
+        }
+
+        .reveal.active{
+            opacity:1;
+            transform:translateY(0);
+        }
+
+        @keyframes fadeUp{
+            from{
+                opacity:0;
+                transform:translateY(50px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        /* Mobile */
+
+        @media(max-width:768px){
+
+            header{
+                flex-direction:column;
+                gap:15px;
+            }
+
+            nav ul{
+                flex-wrap:wrap;
+                justify-content:center;
+                gap:15px;
+            }
+
+            .hero h1{
+                font-size:2.5rem;
+            }
+
+            .contact-wrapper{
+                grid-template-columns:1fr;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
 <header>
@@ -251,26 +407,29 @@ footer{
 <section class="hero">
     <div class="hero-content">
         <h1>HealthCare Plus Hospital</h1>
-        <p>Compassionate Care, Advanced Medicine</p>
+        <p>
+            Delivering Exceptional Healthcare With Compassion,
+            Innovation and Excellence.
+        </p>
 
-        <a href="#contact" class="btn primary">
+        <a href="#contact" class="btn btn-primary">
             Book Appointment
         </a>
 
-        <a href="tel:+911234567890" class="btn secondary">
+        <a href="#" class="btn btn-secondary">
             Emergency 24/7
         </a>
     </div>
 </section>
 
-<section id="about">
+<section id="about" class="reveal">
     <h2 class="section-title">About Us</h2>
 
     <div class="about">
         <p>
-            HealthCare Plus Hospital is committed to providing
-            exceptional healthcare services through advanced
-            technology, experienced doctors, and patient-centered care.
+            HealthCare Plus Hospital provides advanced medical
+            treatments with world-class facilities, highly
+            qualified doctors, and patient-focused care.
         </p>
 
         <div class="stats">
@@ -291,128 +450,138 @@ footer{
 
             <div class="stat-box">
                 <h3>24/7</h3>
-                <p>Emergency Care</p>
+                <p>Emergency Service</p>
             </div>
         </div>
     </div>
 </section>
 
-<section id="services">
+<section id="services" class="reveal">
     <h2 class="section-title">Our Services</h2>
 
     <div class="grid">
         <div class="card">
             <h3>Emergency Care</h3>
-            <p>Round-the-clock emergency services.</p>
+            <p>Immediate medical assistance around the clock.</p>
         </div>
 
         <div class="card">
             <h3>Cardiology</h3>
-            <p>Advanced heart care and diagnostics.</p>
+            <p>Advanced heart treatment and diagnostics.</p>
         </div>
 
         <div class="card">
             <h3>Pediatrics</h3>
-            <p>Comprehensive healthcare for children.</p>
+            <p>Specialized healthcare for children.</p>
         </div>
 
         <div class="card">
             <h3>Orthopedics</h3>
-            <p>Expert bone and joint treatment.</p>
+            <p>Comprehensive bone and joint care.</p>
         </div>
 
         <div class="card">
             <h3>Neurology</h3>
-            <p>Brain and nervous system care.</p>
+            <p>Expert neurological treatment and surgery.</p>
         </div>
 
         <div class="card">
             <h3>Diagnostics</h3>
-            <p>Modern laboratory and imaging services.</p>
+            <p>Modern laboratory and imaging facilities.</p>
         </div>
     </div>
 </section>
 
-<section id="doctors">
-    <h2 class="section-title">Our Doctors</h2>
+<section id="doctors" class="reveal">
+    <h2 class="section-title">Our Specialists</h2>
 
     <div class="grid">
+
         <div class="card">
-            <img src="https://via.placeholder.com/100"
-                 class="doctor-img">
+            <img src="https://via.placeholder.com/120" class="doctor-img">
             <h3>Dr. John Smith</h3>
             <p>Cardiologist</p>
         </div>
 
         <div class="card">
-            <img src="https://via.placeholder.com/100"
-                 class="doctor-img">
+            <img src="https://via.placeholder.com/120" class="doctor-img">
             <h3>Dr. Sarah Johnson</h3>
             <p>Pediatrician</p>
         </div>
 
         <div class="card">
-            <img src="https://via.placeholder.com/100"
-                 class="doctor-img">
+            <img src="https://via.placeholder.com/120" class="doctor-img">
             <h3>Dr. Michael Brown</h3>
             <p>Orthopedic Surgeon</p>
         </div>
+
     </div>
 </section>
 
-<section id="facilities">
+<section id="facilities" class="reveal">
     <h2 class="section-title">Facilities</h2>
 
     <div class="grid">
-        <div class="card">ICU Unit</div>
-        <div class="card">Modern Operation Theatre</div>
-        <div class="card">24/7 Ambulance</div>
-        <div class="card">Diagnostic Lab</div>
-        <div class="card">Pharmacy</div>
-        <div class="card">Patient Rooms</div>
+        <div class="card facility">🏥 ICU Unit</div>
+        <div class="card facility">🚑 Ambulance Service</div>
+        <div class="card facility">🧪 Modern Laboratory</div>
+        <div class="card facility">💊 Pharmacy</div>
+        <div class="card facility">🔬 MRI & CT Scan</div>
+        <div class="card facility">🛏 Premium Patient Rooms</div>
     </div>
 </section>
 
-<section class="testimonials">
+<section class="testimonials reveal">
     <h2 class="section-title">Patient Testimonials</h2>
 
     <div class="grid">
         <div class="testimonial">
-            "Excellent doctors and caring staff."
-            <br><strong>- Rahul P.</strong>
+            Excellent doctors and caring staff.
+            My treatment experience was outstanding.
+            <br><br>
+            <strong>— Rahul Patil</strong>
         </div>
 
         <div class="testimonial">
-            "Quick emergency treatment and great care."
-            <br><strong>- Priya S.</strong>
+            Very professional hospital with
+            modern facilities and friendly staff.
+            <br><br>
+            <strong>— Priya Sharma</strong>
         </div>
 
         <div class="testimonial">
-            "Clean facilities and professional service."
-            <br><strong>- Amit K.</strong>
+            Quick emergency response and excellent care.
+            Highly recommended.
+            <br><br>
+            <strong>— Amit Verma</strong>
         </div>
     </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="reveal">
     <h2 class="section-title">Contact Us</h2>
 
-    <div class="contact-container">
+    <div class="contact-wrapper">
 
-        <div>
+        <div class="contact-info">
             <h3>Get In Touch</h3>
+
             <p>📍 123 Medical Avenue, Pune, India</p>
-            <p>📞 +91 12345 67890</p>
+            <p>📞 +91 98765 43210</p>
             <p>✉ info@healthcareplus.com</p>
+            <p>🕒 Open 24 Hours</p>
         </div>
 
         <form class="contact-form">
             <input type="text" placeholder="Your Name">
-            <input type="email" placeholder="Your Email">
+            <input type="email" placeholder="Email Address">
+            <input type="tel" placeholder="Phone Number">
+
             <textarea rows="5"
-                      placeholder="Your Message"></textarea>
+                placeholder="How can we help you?"></textarea>
+
             <button type="submit">
-                Send Message
+                Book Appointment
             </button>
         </form>
 
@@ -425,6 +594,25 @@ footer{
         All Rights Reserved.
     </p>
 </footer>
+
+<script>
+const reveals = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", () => {
+
+    reveals.forEach(section => {
+
+        const windowHeight = window.innerHeight;
+        const sectionTop =
+            section.getBoundingClientRect().top;
+
+        if(sectionTop < windowHeight - 100){
+            section.classList.add("active");
+        }
+    });
+
+});
+</script>
 
 </body>
 </html>
